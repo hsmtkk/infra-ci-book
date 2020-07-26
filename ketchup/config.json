@@ -1,0 +1,15 @@
+{
+  "bindext": true,
+  "port": 80,
+  "data_dir": "app-contents/contents/data",
+  "bolt": {
+    "path": ""
+  },
+  "backup": {
+  "enabled": false
+  },
+  "themes": {
+    "path": "themes",
+    "registry_url": "http://themes.ketchuphq.com/registry.json"
+  }
+}

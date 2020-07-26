@@ -1,0 +1,25 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: drone_yml_lint
+    image: sdesbure/yamllint:latest
+    commands:
+      - yamllint -d relaxed .drone.yml
+
+  - name: dockerfile_lint
+    image: hadolint/hadolint:v1.18.0
+    commands:
+      - hadolint ketchup/Dockerfile
+
+  - name: docker_build
+    image: plugins/docker:v18.09.2
+    settings:
+      dockerfile: ketchup/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/infra-ci-book
+      tags:
+        - ketchup
