@@ -14,7 +14,7 @@ steps:
       - hadolint ketchup/Dockerfile
 
   - name: docker_build
-    image: plugins/docker:v18.09.2
+    image: plugins/docker:18.09.2
     settings:
       dockerfile: ketchup/Dockerfile
       username: hsmtkk
