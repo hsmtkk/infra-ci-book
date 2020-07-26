@@ -14,7 +14,7 @@ WORKDIR /opt
 
 COPY --from=builder /usr/local/src/ketchup /opt/ketchup
 COPY --from=builder /usr/local/src/app-contents/contents/data /opt/app-contets/contents/data
-COPY config.json /opt/config.json
+COPY ketchup/config.json /opt/config.json
 
 EXPOSE 80
 
