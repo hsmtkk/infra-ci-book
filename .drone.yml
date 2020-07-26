@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: default
+name: build_container
 
 steps:
   - name: drone_yml_lint
@@ -23,3 +23,22 @@ steps:
       repo: hsmtkk/infra-ci-book
       tags:
         - ketchup
+
+---
+kind: pipeline
+type: docker
+name: test_container
+
+steps:
+  - name: test_container
+    image: curlimages/curl:7.71.1
+    commands:
+      - curl -L http://ketchup/admin
+
+services:
+  - name: ketchup
+    image: hsmtkk/infra-ci-book:ketchup
+
+depends_on:
+  - build_container
+
