@@ -33,6 +33,7 @@ steps:
   - name: test_container
     image: curlimages/curl:7.71.1
     commands:
+      - sleep 5
       - curl -L http://ketchup/admin
 
 services:
